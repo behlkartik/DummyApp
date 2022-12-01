@@ -1,7 +1,7 @@
-from blog import app, db
+from blog import db
 from blog.models import Article
 from flask import request, jsonify, Blueprint
-from blog.schemas import ArticleSchema, validate_request
+from blog.schemas.schemas import ArticleSchema, validate_request
 
 blueprint = Blueprint('articles', __name__, url_prefix='/articles')
 
