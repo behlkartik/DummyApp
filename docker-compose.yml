@@ -16,6 +16,12 @@ services:
       - 80:3000
     networks:
         - backnet
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
 networks:
   backnet:
-  
+
+volumes:
+  db-data:
