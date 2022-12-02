@@ -1,19 +1,21 @@
 version: '3.3'
 services:
+  my_mysql_db:
+      image: my_mysql_db:1.0
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+      ports:
+        - 3306:3306
+      networks:
+        - backnet
   blog_app:
     image: blog_app:1.0
     depends_on:
       - my_mysql_db
     ports:
       - 80:3000
-  my_mysql_db:
-    image: my_mysql_db:1.0
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-    ports:
-      - 3306:3306
-    volumes:
-      - db-data:/var/lib/mysql
-volumes:
-  db-data:
-    driver: local
+    networks:
+        - backnet
+networks:
+  backnet:
+  

@@ -6,7 +6,7 @@ from flask_marshmallow import Marshmallow, fields
 
 app = Flask(__name__)
 app.app_context().push()
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:root@my_mysql_db:3306/blog"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:root@my_mysql_db/blog"
 app.config["SECRET_KEY"] = uuid4().hex
 
 db = SQLAlchemy(app)
